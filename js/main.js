@@ -1,18 +1,27 @@
-// Descrizione:
+// "use strict";
 
 // Un alert() espone 5 numeri generati casualmente.
+let rdmArray = [];
+let numberToGenerate = 5;
 
-for(let i = 0; i < 5; i++){
-    alert(getRandomNumberBetween(1,100)); 
+for(let i = 0; i < numberToGenerate; i++){
+    rdmArray.push(getRandomNumberBetween(1,100));
 }
 
-// funzione get random;
+console.log(rdmArray);
+document.getElementById("randomN").innerHTML = rdmArray;
+alert(rdmArray);
+
+// funzione getRandom;
 function getRandomNumberBetween(min,max){
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
 // Da li parte un timer di 30 secondi.
-let seconds = 5;
+
+// invoco la funzione setInterval e la salvo in una variabile;
+let idInterval = setInterval(timer, 1000);
+seconds = 5;
 
 // function countdown;
 function timer(){
@@ -25,19 +34,18 @@ function timer(){
     seconds--;
 }
 
-// invoco la funzione setInterval e la salvo in una variabile;
-let idInterval = setInterval(timer, 1000);
-
 
 // Dopo 30 secondi l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
+let userArray = [];
 
-
-    for(let i = 0; i < seconds; i++){
-        let userNumber = 0;
-         userNumber = parseInt(prompt("inserisci un numero"));
-         console.log(userNumber);
+    for(let i = 0; i < numberToGenerate; i++){
+        let userNumber = parseInt(prompt("inserisci un numero"));
+        userArray.push(userNumber);
     }  
 
+console.log(userArray);
+document.getElementById("randomU").innerHTML = userArray;
 
 // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+
 
